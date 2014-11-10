@@ -32,6 +32,15 @@
     UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Against or Earned?"message:@"Choose applicable" delegate: self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Against",@"Earned", nil];
     [alert show];
 }
+
+- (IBAction) newGame
+{
+    UIStoryboard *storyboard = self.storyboard;
+    GameViewController *gvc = [storyboard instantiateViewControllerWithIdentifier:@"InGameMenu"];
+    [self presentViewController:gvc animated:YES completion:nil];
+
+}
+
 - (void) alertView: (UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex==1)
@@ -48,6 +57,10 @@
     }
 }
 - (IBAction) returnToGame
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction) quitToMainMenu
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }

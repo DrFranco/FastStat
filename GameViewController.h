@@ -10,16 +10,8 @@
 
 @interface GameViewController : UIViewController <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *score;
-//- (IBAction) updateScore;
-
-//- (IBAction) goalScored;
-
-//- (IBAction) oppGoal;
-
-- (IBAction) ejectionCalled;
-
-//- (IBAction) undoLast;
-
 - (IBAction)returnToGame;
+- (IBAction) quitToMainMenu;
+
 
 @end
