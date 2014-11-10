@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		A07EE97219FE036B0006F035 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A07EE97119FE036B0006F035 /* main.m */; };
 		A07EE97519FE036B0006F035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A07EE97419FE036B0006F035 /* AppDelegate.m */; };
-		A07EE97819FE036B0006F035 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07EE97719FE036B0006F035 /* ViewController.m */; };
 		A07EE97B19FE036B0006F035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97919FE036B0006F035 /* Main.storyboard */; };
 		A07EE97D19FE036B0006F035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97C19FE036B0006F035 /* Images.xcassets */; };
 		A07EE98019FE036B0006F035 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97E19FE036B0006F035 /* LaunchScreen.xib */; };
 		A07EE98C19FE036B0006F035 /* FastStatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A07EE98B19FE036B0006F035 /* FastStatTests.m */; };
+		A0C97E761A101EA9008543F9 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C97E751A101EA9008543F9 /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,16 @@
 		A07EE97119FE036B0006F035 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A07EE97319FE036B0006F035 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A07EE97419FE036B0006F035 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A07EE97619FE036B0006F035 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A07EE97719FE036B0006F035 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A07EE97A19FE036B0006F035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A07EE97C19FE036B0006F035 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A07EE97F19FE036B0006F035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A07EE98519FE036B0006F035 /* FastStatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastStatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07EE98A19FE036B0006F035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A07EE98B19FE036B0006F035 /* FastStatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastStatTests.m; sourceTree = "<group>"; };
+		A0C97E741A101B7B008543F9 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../GameViewController.h; sourceTree = "<group>"; };
+		A0C97E751A101EA9008543F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../GameViewController.m; sourceTree = "<group>"; };
+		A0C97E771A102228008543F9 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		A0C97E781A102BEF008543F9 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,8 @@
 		A07EE96319FE036B0006F035 = {
 			isa = PBXGroup;
 			children = (
+				A0C97E771A102228008543F9 /* Game.h */,
+				A0C97E781A102BEF008543F9 /* Player.h */,
 				A07EE96E19FE036B0006F035 /* FastStat */,
 				A07EE98819FE036B0006F035 /* FastStatTests */,
 				A07EE96D19FE036B0006F035 /* Products */,
@@ -83,8 +87,8 @@
 			children = (
 				A07EE97319FE036B0006F035 /* AppDelegate.h */,
 				A07EE97419FE036B0006F035 /* AppDelegate.m */,
-				A07EE97619FE036B0006F035 /* ViewController.h */,
-				A07EE97719FE036B0006F035 /* ViewController.m */,
+				A0C97E751A101EA9008543F9 /* GameViewController.m */,
+				A0C97E741A101B7B008543F9 /* GameViewController.h */,
 				A07EE97919FE036B0006F035 /* Main.storyboard */,
 				A07EE97C19FE036B0006F035 /* Images.xcassets */,
 				A07EE97E19FE036B0006F035 /* LaunchScreen.xib */,
@@ -219,7 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A07EE97819FE036B0006F035 /* ViewController.m in Sources */,
+				A0C97E761A101EA9008543F9 /* GameViewController.m in Sources */,
 				A07EE97519FE036B0006F035 /* AppDelegate.m in Sources */,
 				A07EE97219FE036B0006F035 /* main.m in Sources */,
 			);
@@ -348,6 +352,7 @@
 				INFOPLIST_FILE = FastStat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -358,6 +363,7 @@
 				INFOPLIST_FILE = FastStat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -414,6 +420,7 @@
 				A07EE99119FE036B0006F035 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A07EE99219FE036B0006F035 /* Build configuration list for PBXNativeTarget "FastStatTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +429,7 @@
 				A07EE99419FE036B0006F035 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
