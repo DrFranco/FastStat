@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface GameViewController : UIViewController <UIAlertViewDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *score;
+@property (weak, nonatomic) IBOutlet UILabel *teamScore;
+@property (weak, nonatomic) IBOutlet UILabel *oppScore;
+@property (weak, nonatomic) IBOutlet UILabel *quarter;
 - (IBAction)returnToGame;
 - (IBAction) quitToMainMenu;
 

@@ -7,12 +7,14 @@
 //
 
 #import "GameViewController.h"
-
+#import "Game.h"
 @interface GameViewController ()
 
 @end
+
+
 @implementation GameViewController
-@synthesize score;
+@synthesize teamScore, oppScore;
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,11 +29,8 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (IBAction) ejectionCalled
-{
-    UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Against or Earned?"message:@"Choose applicable" delegate: self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Against",@"Earned", nil];
-    [alert show];
-}
+
+
 
 - (IBAction) newGame
 {
@@ -41,6 +40,13 @@
 
 }
 
+
+//Ejections
+- (IBAction) ejectionCalled
+{
+    UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Against or Earned?"message:@"Choose applicable" delegate: self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Against",@"Earned", nil];
+    [alert show];
+}
 - (void) alertView: (UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex==1)
@@ -56,6 +62,20 @@
         [self presentViewController:gvc animated:YES completion:nil];
     }
 }
+- (IBAction) ejectionAgainst
+{
+    
+}
+
+
+//Opponent scores. Stat isn't taken, for scoring purposes only
+- (IBAction) oppGoal
+{
+    int x = [oppScore.text intValue];
+    x++;
+    oppScore.text = [NSString stringWithFormat:@"%ld", (long)x];
+}
+
 - (IBAction) returnToGame
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];

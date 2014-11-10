@@ -13,10 +13,13 @@
 @end
 @interface Game : NSObject
 {
-    Player *player;
+    NSMutableArray *players;
+    Player *stats;
 }
 
 -(NSArray *) playerNames;
 
 -(void) saveData;
+
+
 @end

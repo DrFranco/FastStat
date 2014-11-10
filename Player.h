@@ -9,17 +9,18 @@
 #import <Foundation/Foundation.h>
 
 @interface Player: NSObject
-@property (strong, nonatomic) BOOL gamePlayed;
-@property (strong, nonatomic) BOOL gameStarted;
-@property (strong, nonatomic) NSInteger turnovers;
-@property (strong, nonatomic) NSInteger offensives;
-@property (strong, nonatomic) NSInteger steals;
-@property (strong, nonatomic) NSInteger fieldBlocks;
-@property (strong, nonatomic) NSInteger ejectionsAgainst;
-@property (strong, nonatomic) NSInteger ejectionsEarned;
-@property (strong, nonatomic) NSInteger attempts;
-@property (strong, nonatomic) NSInteger goals;
-@property (strong, nonatomic) NSInteger assists;
+@property (nonatomic) BOOL gamePlayed;
+@property (nonatomic) BOOL gameStarted;
+@property (nonatomic) NSInteger turnovers;
+@property (nonatomic) NSInteger offensives;
+@property (nonatomic) NSInteger steals;
+@property (nonatomic) NSInteger fieldBlocks;
+@property (nonatomic) NSInteger ejectionsAgainst;
+@property (nonatomic) NSInteger ejectionsEarned;
+@property (nonatomic) NSInteger attempts;
+@property (nonatomic) NSInteger goals;
+@property (nonatomic) NSInteger assists;
+@property (strong, nonatomic) NSString *name;
 
 
 @end
