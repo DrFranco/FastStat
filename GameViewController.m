@@ -7,14 +7,13 @@
 //
 
 #import "GameViewController.h"
-#import "Game.h"
 @interface GameViewController ()
 
 @end
 
 
 @implementation GameViewController
-@synthesize teamScore, oppScore;
+@synthesize teamScore, oppScore, textField, stats, players,quarter;
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -79,6 +78,38 @@
 - (IBAction) returnToGame
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction) nextQuarter
+{
+    if ([quarter.text isEqual:@"Quarter 1"])
+    {
+        quarter.text=@"Quarter 2";
+    }
+    else if ([quarter.text isEqual:@"Quarter 2"])
+    {
+        quarter.text=@"Quarter 3";
+    }
+    else if ([quarter.text isEqual:@"Quarter 3"])
+    {
+        quarter.text=@"Quarter 4";
+    }
+    else if ([quarter.text isEqual:@"Quarter 4"] && oppScore.text != teamScore.text)
+    {
+        quarter.text=@"OT";
+    }
+    else
+    {
+        [self endGame];
+    }
+        
+    
+}
+-(void) endGame
+{
+    UIStoryboard *storyboard = self.storyboard;
+    GameViewController *gvc = [storyboard instantiateViewControllerWithIdentifier:@"GameOver"];
+    [self presentViewController:gvc animated:YES completion:nil];
 }
 - (IBAction) quitToMainMenu
 {

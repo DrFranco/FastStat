@@ -10,7 +10,7 @@
 #import "Game.h"
 @implementation Game
 
-- (id) init
+/*- (id) init
 {
     NSString *initFilename;
     if (self=[super init])
@@ -28,7 +28,7 @@
         players = [[NSMutableArray alloc] initWithContentsOfFile: initFilename];
     }
     return self;
-}
+}*/
 -(NSArray *) playerNames
 {
     return players;
