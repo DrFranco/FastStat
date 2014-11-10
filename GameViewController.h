@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+
 @interface GameViewController : UIViewController <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *teamScore;
 @property (weak, nonatomic) IBOutlet UILabel *oppScore;
 @property (weak, nonatomic) IBOutlet UILabel *quarter;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-@property Game *stats;
-@property Game *players;
+
 - (IBAction)returnToGame;
 - (IBAction) quitToMainMenu;
 

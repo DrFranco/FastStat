@@ -41,9 +41,9 @@
 		A07EE98B19FE036B0006F035 /* FastStatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastStatTests.m; sourceTree = "<group>"; };
 		A0C97E741A101B7B008543F9 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../GameViewController.h; sourceTree = "<group>"; };
 		A0C97E751A101EA9008543F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../GameViewController.m; sourceTree = "<group>"; };
-		A0C97E771A102228008543F9 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		A0C97E781A102BEF008543F9 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		A0C97E7C1A105981008543F9 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		A0C97E771A102228008543F9 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Game.h; sourceTree = "<group>"; };
+		A0C97E781A102BEF008543F9 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Player.h; sourceTree = "<group>"; };
+		A0C97E7C1A105981008543F9 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = ../Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +67,6 @@
 		A07EE96319FE036B0006F035 = {
 			isa = PBXGroup;
 			children = (
-				A0C97E771A102228008543F9 /* Game.h */,
-				A0C97E781A102BEF008543F9 /* Player.h */,
-				A0C97E7C1A105981008543F9 /* Game.m */,
 				A07EE96E19FE036B0006F035 /* FastStat */,
 				A07EE98819FE036B0006F035 /* FastStatTests */,
 				A07EE96D19FE036B0006F035 /* Products */,
@@ -88,6 +85,9 @@
 		A07EE96E19FE036B0006F035 /* FastStat */ = {
 			isa = PBXGroup;
 			children = (
+				A0C97E781A102BEF008543F9 /* Player.h */,
+				A0C97E771A102228008543F9 /* Game.h */,
+				A0C97E7C1A105981008543F9 /* Game.m */,
 				A07EE97319FE036B0006F035 /* AppDelegate.h */,
 				A07EE97419FE036B0006F035 /* AppDelegate.m */,
 				A0C97E751A101EA9008543F9 /* GameViewController.m */,

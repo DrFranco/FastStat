@@ -13,7 +13,7 @@
 
 
 @implementation GameViewController
-@synthesize teamScore, oppScore, textField, stats, players,quarter;
+@synthesize teamScore, oppScore, textField, quarter;
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -82,19 +82,19 @@
 
 - (IBAction) nextQuarter
 {
-    if ([quarter.text isEqual:@"Quarter 1"])
+    if ([quarter.text isEqual:@"1st Quarter"])
     {
-        quarter.text=@"Quarter 2";
+        quarter.text=@"2nd Quarter";
     }
-    else if ([quarter.text isEqual:@"Quarter 2"])
+    else if ([quarter.text isEqual:@"2nd Quarter"])
     {
-        quarter.text=@"Quarter 3";
+        quarter.text=@"3rd Quarter";
     }
-    else if ([quarter.text isEqual:@"Quarter 3"])
+    else if ([quarter.text isEqual:@"3rd Quarter"])
     {
-        quarter.text=@"Quarter 4";
+        quarter.text=@"4th Quarter";
     }
-    else if ([quarter.text isEqual:@"Quarter 4"] && oppScore.text != teamScore.text)
+    else if ([quarter.text isEqual:@"4th Quarter"] && [oppScore.text intValue ]==[teamScore.text intValue])
     {
         quarter.text=@"OT";
     }
