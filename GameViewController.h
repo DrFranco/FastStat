@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *oppScore;
 @property (weak, nonatomic) IBOutlet UILabel *quarter;
 @property (strong, nonatomic) Game *currGame;
-- (IBAction)returnToGame;
 - (IBAction) quitToMainMenu;
 
 
