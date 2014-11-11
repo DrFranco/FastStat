@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "DataInsertionController.h"
 @interface GameViewController ()
 
 @end
@@ -56,18 +57,101 @@
     if (buttonIndex==1)
     {
         UIStoryboard *storyboard = self.storyboard;
-        GameViewController *gvc = [storyboard instantiateViewControllerWithIdentifier:@"EjectionAgainstHandler"];
-        [self presentViewController:gvc animated:YES completion:nil];
+        DataInsertionController *dic = [storyboard instantiateViewControllerWithIdentifier:@"EjectionAgainstHandler"];
+        dic.currGame = currGame;
+        [self presentViewController:dic animated:YES completion:nil];
     }
     else if(buttonIndex==2)
     {
         UIStoryboard *storyboard = self.storyboard;
-        GameViewController *gvc = [storyboard instantiateViewControllerWithIdentifier:@"EjectionEarnedHandler"];
-        [self presentViewController:gvc animated:YES completion:nil];
+        DataInsertionController *dic = [storyboard instantiateViewControllerWithIdentifier:@"EjectionEarnedHandler"];
+        dic.currGame = currGame;
+        [self presentViewController:dic animated:YES completion:nil];
     }
 }
+// Game Played
+- (IBAction) gamePlayed
+{
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic = [storyboard instantiateViewControllerWithIdentifier:@"GamePlayedHandler"];
+    dic.currGame = currGame;
+    [self presentViewController: dic animated: YES completion: nil];
+}
 
+//GameStarted
+- (IBAction) gameStarted
+{
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic =[storyboard instantiateViewControllerWithIdentifier:@"GameStartedHandler"];
+    dic.currGame = currGame;
+    [self presentViewController:dic animated:YES completion:nil];
+}
 
+//Turnover
+- (IBAction) turnover
+{
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic =[storyboard instantiateViewControllerWithIdentifier:@"TurnoverHandler"];
+    dic.currGame = currGame;
+    [self presentViewController:dic animated:YES completion:nil];
+}
+
+//Offensive
+- (IBAction) offensive
+{
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic =[storyboard instantiateViewControllerWithIdentifier:@"OffensiveHandler"];
+    dic.currGame = currGame;
+    [self presentViewController:dic animated:YES completion:nil];
+}
+
+//FieldBlock
+- (IBAction) fieldBlock
+{
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic =[storyboard instantiateViewControllerWithIdentifier:@"FieldBlockHandler"];
+    dic.currGame = currGame;
+    [self presentViewController:dic animated:YES completion:nil];
+}
+
+//Steal
+- (IBAction) steal
+{
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic =[storyboard instantiateViewControllerWithIdentifier:@"StealHandler"];
+    dic.currGame = currGame;
+    [self presentViewController:dic animated:YES completion:nil];
+}
+
+//Shot (Attempt)
+-(IBAction) shot
+{
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic =[storyboard instantiateViewControllerWithIdentifier:@"ShotHandler"];
+    dic.currGame = currGame;
+    [self presentViewController:dic animated:YES completion:nil];
+}
+
+//Goal
+- (IBAction)goal
+{
+    int x = [teamScore.text intValue];
+    x++;
+    teamScore.text = [NSString stringWithFormat:@"%ld", (long)x];
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic =[storyboard instantiateViewControllerWithIdentifier:@"GoalHandler"];
+    dic.currGame = currGame;
+    [self presentViewController:dic animated:YES completion:nil];
+}
+
+//Assist
+- (IBAction) assist
+{
+    UIStoryboard *storyboard = self.storyboard;
+    DataInsertionController *dic =[storyboard instantiateViewControllerWithIdentifier:@"AssistHandler"];
+    dic.currGame = currGame;
+    [self presentViewController:dic animated:YES completion:nil];
+}
 
 //Opponent scores. Stat isn't taken, for scoring purposes only
 - (IBAction) oppGoal
@@ -77,10 +161,6 @@
     oppScore.text = [NSString stringWithFormat:@"%ld", (long)x];
 }
 
-- (IBAction) returnToGame
-{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-}
 
 - (IBAction) nextQuarter
 {
@@ -107,6 +187,7 @@
         
     
 }
+
 -(void) endGame
 {
     UIStoryboard *storyboard = self.storyboard;
