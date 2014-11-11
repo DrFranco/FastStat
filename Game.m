@@ -10,26 +10,35 @@
 #import "Game.h"
 @implementation Game
 
-/*- (id) init
+- (id) init
 {
     NSString *initFilename;
     if (self=[super init])
     {
+        
         NSString *savedDataFilename = [self savedDataFilename];
         if([[NSFileManager defaultManager]fileExistsAtPath:savedDataFilename])
         {
             initFilename = savedDataFilename;
+            players = [[NSMutableArray alloc] initWithContentsOfFile: initFilename];
         }
         else
         {
-            NSBundle *bundle = [NSBundle mainBundle];
-            initFilename = [bundle pathForResource:@"DefaultNames" ofType: @"plist"];
+            NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity: 26];
+            int i;
+            for (i=0; i<26;i++)
+            {
+                Player *thisPlayer = [[Player alloc] init];
+                thisPlayer.name = [NSString stringWithFormat:@"%d", i+1];
+                [newArray addObject:thisPlayer];
+            }
+            players = newArray;
         }
-        players = [[NSMutableArray alloc] initWithContentsOfFile: initFilename];
+        
     }
     return self;
-}*/
--(NSArray *) playerNames
+}
+-(NSArray *) playerAccessor
 {
     return players;
 }

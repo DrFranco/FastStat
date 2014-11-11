@@ -8,16 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Player.h"
-@implementation Player
-@synthesize gamePlayed, gameStarted, turnovers,offensives,steals,fieldBlocks, ejectionsAgainst,ejectionsEarned,attempts,goals,assists;
-@end
+
 @interface Game : NSObject
 {
     NSMutableArray *players;
-    Player *stats;
 }
 
--(NSArray *) playerNames;
+-(NSArray *) playerAccessor;
+
 
 -(void) saveData;
 

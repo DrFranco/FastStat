@@ -13,7 +13,7 @@
 
 
 @implementation GameViewController
-@synthesize teamScore, oppScore, textField, quarter;
+@synthesize teamScore, oppScore, quarter, currGame;
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,8 +35,13 @@
 {
     UIStoryboard *storyboard = self.storyboard;
     GameViewController *gvc = [storyboard instantiateViewControllerWithIdentifier:@"InGameMenu"];
+    NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity: 26];
+    gvc.currGame = [Game new];
+    NSArray *temp = [gvc.currGame playerAccessor];
+    temp =newArray;
     [self presentViewController:gvc animated:YES completion:nil];
-
+    
+    
 }
 
 
@@ -61,10 +66,7 @@
         [self presentViewController:gvc animated:YES completion:nil];
     }
 }
-- (IBAction) ejectionAgainst
-{
-    
-}
+
 
 
 //Opponent scores. Stat isn't taken, for scoring purposes only
@@ -109,10 +111,13 @@
 {
     UIStoryboard *storyboard = self.storyboard;
     GameViewController *gvc = [storyboard instantiateViewControllerWithIdentifier:@"GameOver"];
+    gvc.currGame = currGame;
     [self presentViewController:gvc animated:YES completion:nil];
 }
 - (IBAction) quitToMainMenu
 {
+    NSArray *temp =[currGame playerAccessor];
+    temp = nil;
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
