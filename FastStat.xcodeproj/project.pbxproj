@@ -13,6 +13,8 @@
 		A07EE97D19FE036B0006F035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97C19FE036B0006F035 /* Images.xcassets */; };
 		A07EE98019FE036B0006F035 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97E19FE036B0006F035 /* LaunchScreen.xib */; };
 		A07EE98C19FE036B0006F035 /* FastStatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A07EE98B19FE036B0006F035 /* FastStatTests.m */; };
+		A0A96D481A11D229005E0242 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A96D471A11D229005E0242 /* Player.m */; };
+		A0A96D501A11D9F5005E0242 /* DataInsertionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A96D4F1A11D9F5005E0242 /* DataInsertionController.m */; };
 		A0C97E761A101EA9008543F9 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C97E751A101EA9008543F9 /* GameViewController.m */; };
 		A0C97E7D1A105981008543F9 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C97E7C1A105981008543F9 /* Game.m */; };
 /* End PBXBuildFile section */
@@ -39,6 +41,9 @@
 		A07EE98519FE036B0006F035 /* FastStatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastStatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07EE98A19FE036B0006F035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A07EE98B19FE036B0006F035 /* FastStatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastStatTests.m; sourceTree = "<group>"; };
+		A0A96D471A11D229005E0242 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		A0A96D4E1A11D8F1005E0242 /* DataInsertionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataInsertionController.h; sourceTree = "<group>"; };
+		A0A96D4F1A11D9F5005E0242 /* DataInsertionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataInsertionController.m; sourceTree = "<group>"; };
 		A0C97E741A101B7B008543F9 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../GameViewController.h; sourceTree = "<group>"; };
 		A0C97E751A101EA9008543F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../GameViewController.m; sourceTree = "<group>"; };
 		A0C97E771A102228008543F9 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Game.h; sourceTree = "<group>"; };
@@ -85,14 +90,11 @@
 		A07EE96E19FE036B0006F035 /* FastStat */ = {
 			isa = PBXGroup;
 			children = (
-				A0C97E781A102BEF008543F9 /* Player.h */,
-				A0C97E771A102228008543F9 /* Game.h */,
-				A0C97E7C1A105981008543F9 /* Game.m */,
+				A0A96D4D1A11D69F005E0242 /* Model */,
+				A0A96D4C1A11D689005E0242 /* Control */,
+				A0A96D4B1A11D5B0005E0242 /* View */,
 				A07EE97319FE036B0006F035 /* AppDelegate.h */,
 				A07EE97419FE036B0006F035 /* AppDelegate.m */,
-				A0C97E751A101EA9008543F9 /* GameViewController.m */,
-				A0C97E741A101B7B008543F9 /* GameViewController.h */,
-				A07EE97919FE036B0006F035 /* Main.storyboard */,
 				A07EE97C19FE036B0006F035 /* Images.xcassets */,
 				A07EE97E19FE036B0006F035 /* LaunchScreen.xib */,
 				A07EE96F19FE036B0006F035 /* Supporting Files */,
@@ -124,6 +126,36 @@
 				A07EE98A19FE036B0006F035 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0A96D4B1A11D5B0005E0242 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A07EE97919FE036B0006F035 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A0A96D4C1A11D689005E0242 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				A0C97E741A101B7B008543F9 /* GameViewController.h */,
+				A0C97E751A101EA9008543F9 /* GameViewController.m */,
+				A0A96D4E1A11D8F1005E0242 /* DataInsertionController.h */,
+				A0A96D4F1A11D9F5005E0242 /* DataInsertionController.m */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		A0A96D4D1A11D69F005E0242 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0C97E781A102BEF008543F9 /* Player.h */,
+				A0A96D471A11D229005E0242 /* Player.m */,
+				A0C97E771A102228008543F9 /* Game.h */,
+				A0C97E7C1A105981008543F9 /* Game.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,9 +259,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C97E761A101EA9008543F9 /* GameViewController.m in Sources */,
+				A0A96D501A11D9F5005E0242 /* DataInsertionController.m in Sources */,
 				A07EE97519FE036B0006F035 /* AppDelegate.m in Sources */,
 				A07EE97219FE036B0006F035 /* main.m in Sources */,
 				A0C97E7D1A105981008543F9 /* Game.m in Sources */,
+				A0A96D481A11D229005E0242 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
