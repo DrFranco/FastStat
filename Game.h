@@ -14,7 +14,7 @@
     NSMutableArray *players;
 }
 
--(NSArray *) playerAccessor;
+-(NSMutableArray *) playerAccessor;
 
 
 -(void) saveData;

@@ -28,8 +28,9 @@
             int i;
             for (i=0; i<26;i++)
             {
-                Player *thisPlayer = [[Player alloc] init];
+                Player *thisPlayer = [Player new];
                 thisPlayer.name = [NSString stringWithFormat:@"%d", i+1];
+                thisPlayer.goals =0;
                 [newArray addObject:thisPlayer];
             }
             players = newArray;
@@ -38,7 +39,7 @@
     }
     return self;
 }
--(NSArray *) playerAccessor
+-(NSMutableArray *) playerAccessor
 {
     return players;
 }

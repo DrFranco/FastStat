@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Game.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+    Game *currGame;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 

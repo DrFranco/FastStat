@@ -29,9 +29,9 @@
 {
     NSArray *temp = [currGame playerAccessor];
     NSUInteger num = [temp count];
-    if ([textField.text integerValue]>=num || [textField.text integerValue] < 1|| [textField.text isEqualToString:@""])
+    if ([textField.text integerValue]>num || [textField.text integerValue] < 1|| [textField.text isEqualToString:@""])
     {
-        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Invalid Number" message:@"Please check if number is valid. By default, numbers cannot exceed 25." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Invalid Number" message:@"Please check if number is valid. By default, numbers cannot exceed 26." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         alert.tag=TAG_ERR;
         [alert show];
     }
@@ -51,8 +51,8 @@
     {
         if (buttonIndex==1)
         {
-            NSArray *temp = [currGame playerAccessor];
-            Player *tempPlayer = [temp objectAtIndex:[textField.text integerValue]];
+            NSMutableArray *temp = [currGame playerAccessor];
+            Player *tempPlayer = [temp objectAtIndex:[textField.text integerValue]-1];
             NSString *restorationId = self.restorationIdentifier;
             if ([restorationId isEqualToString:@"Ejection Against"])
                 tempPlayer.ejectionsAgainst++;
@@ -84,7 +84,4 @@
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
 @end
