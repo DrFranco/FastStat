@@ -99,7 +99,7 @@
     //now this is unnecessary at the moment, but if I were to add more alerts, it would avoid problems
     if (alertView.tag==TAG_OK)
     {
-        
+        //removed alert: was redundant w the apply button
     }
 }
 -(void)cancelButton

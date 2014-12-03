@@ -83,27 +83,5 @@
     NSString *savedDataFilename = [self savedDataFilename];
     [players writeToFile:savedDataFilename atomically:YES];
 }
-/*+(void) initializeFileDic:(NSString*)FileNameExt
-{
-    NSString *path = [[NSBundle mainBundle] bundlePath];
-    NSString *startPath = [[path stringByAppendingPathComponent:FileNameExt]stringByAppendingPathExtension:@"plist"];
-    NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filePath = [[documentsDirectoryPath stringByAppendingPathComponent:FileNameExt]stringByAppendingPathExtension:@"plist"];
-    NSLog(@"Help!\n");
-    NSLog(@"%@ \n,\n %@ ", startPath,filePath);
-    if([NSMutableArray arrayWithContentsOfFile:startPath])
-    {
-        NSLog(@"File %@exists",filePath);
-    }
-    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath])
-    {
-        if ([[NSMutableArray arrayWithContentsOfFile:startPath]writeToFile:filePath atomically:NO])
-        {
-            NSLog(@"File copied inside App DocumentsDirectory\n\n");
-        }
-    }
-    else{
-        NSLog(@"Error while trying to copy into DocumentsDirectory\n\n");
-    }
-}*/
+
 @end
