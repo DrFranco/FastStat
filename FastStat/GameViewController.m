@@ -37,7 +37,6 @@
 {
     UIStoryboard *storyboard = self.storyboard;
     GameViewController *gvc = [storyboard instantiateViewControllerWithIdentifier:@"InGameMenu"];
-    NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity: 26];
     NSString *identifier = ((UIButton *) sender).titleLabel.text;
     if ([identifier  isEqual: @"New Game"])
     {
@@ -53,8 +52,6 @@
             return;
         }
     }
-    NSArray *temp = [gvc.currGame playerAccessor];
-    temp =newArray;
     [self presentViewController:gvc animated:YES completion:nil];
     
     

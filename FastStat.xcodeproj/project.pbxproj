@@ -13,13 +13,13 @@
 		A07EE97D19FE036B0006F035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97C19FE036B0006F035 /* Images.xcassets */; };
 		A07EE98019FE036B0006F035 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97E19FE036B0006F035 /* LaunchScreen.xib */; };
 		A07EE98C19FE036B0006F035 /* FastStatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A07EE98B19FE036B0006F035 /* FastStatTests.m */; };
-		A07F06F61A2F0AC100B04F24 /* savedData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07F06F51A2F0AC100B04F24 /* savedData.plist */; };
+		A07F06F81A2F2A2A00B04F24 /* Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07F06F71A2F2A2A00B04F24 /* Default.plist */; };
+		A07F06FC1A2F37AF00B04F24 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F06FB1A2F37AF00B04F24 /* Game.m */; };
+		A07F06FF1A2F37C300B04F24 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A07F06FE1A2F37C300B04F24 /* GameViewController.m */; };
 		A0A96D481A11D229005E0242 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A96D471A11D229005E0242 /* Player.m */; };
 		A0A96D501A11D9F5005E0242 /* DataInsertionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A96D4F1A11D9F5005E0242 /* DataInsertionController.m */; };
 		A0C86C7F1A1328D000AC293F /* EndOfGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C86C7C1A1328D000AC293F /* EndOfGameViewController.m */; };
 		A0C86C801A1328D000AC293F /* StatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C86C7E1A1328D000AC293F /* StatViewController.m */; };
-		A0C97E761A101EA9008543F9 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C97E751A101EA9008543F9 /* GameViewController.m */; };
-		A0C97E7D1A105981008543F9 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C97E7C1A105981008543F9 /* Game.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,12 @@
 		A07EE98519FE036B0006F035 /* FastStatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastStatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07EE98A19FE036B0006F035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A07EE98B19FE036B0006F035 /* FastStatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastStatTests.m; sourceTree = "<group>"; };
-		A07F06F51A2F0AC100B04F24 /* savedData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = savedData.plist; sourceTree = "<group>"; };
+		A07F06F71A2F2A2A00B04F24 /* Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Default.plist; sourceTree = "<group>"; };
+		A07F06F91A2F378300B04F24 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		A07F06FA1A2F37A100B04F24 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		A07F06FB1A2F37AF00B04F24 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		A07F06FD1A2F37BC00B04F24 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		A07F06FE1A2F37C300B04F24 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		A0A96D471A11D229005E0242 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		A0A96D4E1A11D8F1005E0242 /* DataInsertionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataInsertionController.h; sourceTree = "<group>"; };
 		A0A96D4F1A11D9F5005E0242 /* DataInsertionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataInsertionController.m; sourceTree = "<group>"; };
@@ -52,11 +57,6 @@
 		A0C86C7C1A1328D000AC293F /* EndOfGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndOfGameViewController.m; sourceTree = "<group>"; };
 		A0C86C7D1A1328D000AC293F /* StatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatViewController.h; sourceTree = "<group>"; };
 		A0C86C7E1A1328D000AC293F /* StatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatViewController.m; sourceTree = "<group>"; };
-		A0C97E741A101B7B008543F9 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../GameViewController.h; sourceTree = "<group>"; };
-		A0C97E751A101EA9008543F9 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../GameViewController.m; sourceTree = "<group>"; };
-		A0C97E771A102228008543F9 /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Game.h; sourceTree = "<group>"; };
-		A0C97E781A102BEF008543F9 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Player.h; sourceTree = "<group>"; };
-		A0C97E7C1A105981008543F9 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = ../Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,6 @@
 		A07EE96E19FE036B0006F035 /* FastStat */ = {
 			isa = PBXGroup;
 			children = (
-				A07F06F51A2F0AC100B04F24 /* savedData.plist */,
 				A0A96D4D1A11D69F005E0242 /* Model */,
 				A0A96D4C1A11D689005E0242 /* Control */,
 				A0A96D4B1A11D5B0005E0242 /* View */,
@@ -107,6 +106,7 @@
 				A07EE97C19FE036B0006F035 /* Images.xcassets */,
 				A07EE97E19FE036B0006F035 /* LaunchScreen.xib */,
 				A07EE96F19FE036B0006F035 /* Supporting Files */,
+				A07F06F71A2F2A2A00B04F24 /* Default.plist */,
 			);
 			path = FastStat;
 			sourceTree = "<group>";
@@ -148,8 +148,8 @@
 		A0A96D4C1A11D689005E0242 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				A0C97E741A101B7B008543F9 /* GameViewController.h */,
-				A0C97E751A101EA9008543F9 /* GameViewController.m */,
+				A07F06FD1A2F37BC00B04F24 /* GameViewController.h */,
+				A07F06FE1A2F37C300B04F24 /* GameViewController.m */,
 				A0C86C7B1A1328D000AC293F /* EndOfGameViewController.h */,
 				A0C86C7C1A1328D000AC293F /* EndOfGameViewController.m */,
 				A0C86C7D1A1328D000AC293F /* StatViewController.h */,
@@ -163,10 +163,10 @@
 		A0A96D4D1A11D69F005E0242 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A0C97E781A102BEF008543F9 /* Player.h */,
+				A07F06F91A2F378300B04F24 /* Player.h */,
 				A0A96D471A11D229005E0242 /* Player.m */,
-				A0C97E771A102228008543F9 /* Game.h */,
-				A0C97E7C1A105981008543F9 /* Game.m */,
+				A07F06FA1A2F37A100B04F24 /* Game.h */,
+				A07F06FB1A2F37AF00B04F24 /* Game.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,9 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07F06F81A2F2A2A00B04F24 /* Default.plist in Resources */,
 				A07EE97B19FE036B0006F035 /* Main.storyboard in Resources */,
 				A07EE98019FE036B0006F035 /* LaunchScreen.xib in Resources */,
-				A07F06F61A2F0AC100B04F24 /* savedData.plist in Resources */,
 				A07EE97D19FE036B0006F035 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,13 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0C97E761A101EA9008543F9 /* GameViewController.m in Sources */,
+				A07F06FC1A2F37AF00B04F24 /* Game.m in Sources */,
 				A0A96D501A11D9F5005E0242 /* DataInsertionController.m in Sources */,
 				A0C86C7F1A1328D000AC293F /* EndOfGameViewController.m in Sources */,
+				A07F06FF1A2F37C300B04F24 /* GameViewController.m in Sources */,
 				A0C86C801A1328D000AC293F /* StatViewController.m in Sources */,
 				A07EE97519FE036B0006F035 /* AppDelegate.m in Sources */,
 				A07EE97219FE036B0006F035 /* main.m in Sources */,
-				A0C97E7D1A105981008543F9 /* Game.m in Sources */,
 				A0A96D481A11D229005E0242 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

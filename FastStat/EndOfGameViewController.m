@@ -39,8 +39,9 @@
     }
     
     NSArray *allPlayers = [self.currGame playerAccessor];
-    Player *temp =[allPlayers objectAtIndex:indexPath.row];
-    NSString *ourPlayerName = [temp name];
+    NSData* objData = [allPlayers objectAtIndex:indexPath.row];
+    Player *temp = (Player *)[NSKeyedUnarchiver unarchiveObjectWithData:objData];
+    NSString *ourPlayerName = temp.name;
     if (([ourPlayerName rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound)==YES)
         newCell.textLabel.text =ourPlayerName;
     else
@@ -67,15 +68,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *allPlayers = [self.currGame playerAccessor];
-    Player *temp =[allPlayers objectAtIndex:indexPath.row];
+    NSData* objData = [allPlayers objectAtIndex:indexPath.row];
+    Player *temp = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
     UIStoryboard *storyboard = self.storyboard;
     NSString *restorationId = self.restorationIdentifier;
     if ([restorationId isEqualToString:@"NameInput"])
     {
         DataInsertionController *dic = [storyboard instantiateViewControllerWithIdentifier: @"NameInsertion"];
-        dic.player = temp;
+        dic.currGame =self.currGame;
+        dic.index = indexPath.row;
         [self.navigationController pushViewController:dic animated:YES];
-        [self.tableView reloadData];
         
     }
     else
@@ -92,30 +94,23 @@
     NSString *restorationId = self.restorationIdentifier;
     if (![restorationId isEqualToString:@"NameInput"])
     {
-        self.navigationItem.leftBarButtonItem =
-        [[UIBarButtonItem alloc] initWithTitle:@"Quit" style:UIBarButtonItemStylePlain
-                                        target:self
-                                        action:@selector(quitToMainMenu)];
-        self.navigationItem.rightBarButtonItem =
-        [[UIBarButtonItem alloc] initWithTitle:@"Send" style: UIBarButtonItemStyleDone
-                                        target:self
-                                        action:nil];
+        self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"Quit" style:UIBarButtonItemStylePlain target:self action:@selector(quitToMainMenu)];
+        self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"Send" style: UIBarButtonItemStyleDone target:self action:nil];
         [super viewDidLoad];
     }
     else
     {
-        self.navigationItem.leftBarButtonItem =
-        [[UIBarButtonItem alloc] initWithTitle:@"Quit" style:UIBarButtonItemStylePlain
-                                        target:self
-                                        action:@selector(quit)];
-        self.navigationItem.rightBarButtonItem =
-        [[UIBarButtonItem alloc] initWithTitle:@"Save" style: UIBarButtonItemStyleDone
-                                        target:self
-                                        action:@selector(saveHandler)];
+        self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"Quit" style:UIBarButtonItemStylePlain target:self action:@selector(quit)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style: UIBarButtonItemStyleDone target:self action:@selector(saveHandler)];
         [super viewDidLoad];
         
     }
     // Do any additional setup after loading the view.
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    [self.tableView reloadData];
 }
 - (void) saveHandler
 {

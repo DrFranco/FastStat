@@ -35,17 +35,17 @@
 {
     Player *temp=self.player;
     self.nameLabel.text = [NSString stringWithFormat:@"Player: %@",temp.name];
-    self.gpLabel.text = (temp.gamePlayed)? @"Game Played: Yes":@"Game Played: No";
-    self.gsLabel.text = (temp.gameStarted)? @"Game Started: Yes":@"Game Started: No";
-    self.turnoverLabel.text = [NSString stringWithFormat:@"Turnovers: %d",(int)temp.turnovers];
-    self.offLabel.text = [NSString stringWithFormat:@"Offensives: %d",(int)temp.offensives];
-    self.stealLabel.text = [NSString stringWithFormat:@"Steals: %d",(int)temp.steals];
-    self.fbLabel.text = [NSString stringWithFormat:@"Fieldblocks: %d",(int)temp.fieldBlocks];
-    eaLabel.text = [NSString stringWithFormat:@"Ejections Against: %d",(int)temp.ejectionsAgainst];
-    eeLabel.text = [NSString stringWithFormat:@"Ejections Earned: %d",(int)temp.ejectionsEarned];
-    attLabel.text = [NSString stringWithFormat:@"Shots: %d",(int)temp.attempts];
-    goalLabel.text = [NSString stringWithFormat:@"Goals: %d",(int)temp.goals];
-    assLabel.text = [NSString stringWithFormat:@"Assists: %d",(int)temp.assists];
+    self.gpLabel.text = ([temp.gamePlayed isEqualToNumber:@1])? @"Game Played: Yes":@"Game Played: No";
+    self.gsLabel.text = ([temp.gameStarted isEqualToNumber:@1])? @"Game Started: Yes":@"Game Started: No";
+    self.turnoverLabel.text = [NSString stringWithFormat:@"Turnovers: %d",[temp.turnovers intValue]];
+    self.offLabel.text = [NSString stringWithFormat:@"Offensives: %d",[temp.offensives intValue]];
+    self.stealLabel.text = [NSString stringWithFormat:@"Steals: %d",[temp.steals intValue]];
+    self.fbLabel.text = [NSString stringWithFormat:@"Fieldblocks: %d",[temp.fieldBlocks intValue]];
+    eaLabel.text = [NSString stringWithFormat:@"Ejections Against: %d",[temp.ejectionsAgainst intValue]];
+    eeLabel.text = [NSString stringWithFormat:@"Ejections Earned: %d",[temp.ejectionsEarned intValue]];
+    attLabel.text = [NSString stringWithFormat:@"Shots: %d",[temp.attempts intValue]];
+    goalLabel.text = [NSString stringWithFormat:@"Goals: %d",[temp.goals intValue]];
+    assLabel.text = [NSString stringWithFormat:@"Assists: %d",[temp.assists intValue]];
     [super viewWillAppear:animated];
 }
 - (void)didReceiveMemoryWarning

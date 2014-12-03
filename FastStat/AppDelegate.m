@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Game.h"
 @interface AppDelegate ()
 
 @end

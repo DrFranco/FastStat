@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property Player *player;
+@property (nonatomic) NSInteger index;
 @end

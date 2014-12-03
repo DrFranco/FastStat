@@ -18,5 +18,6 @@
 
 -(id) initWithSaveData;
 -(void) saveData;
+//+(void) initializeFileDic:(NSString*)FileNameExt;
 
 @end

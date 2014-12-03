@@ -10,7 +10,7 @@
 #import "DataInsertionController.h"
 @implementation DataInsertionController
 
-@synthesize textField, currGame, label ;
+@synthesize textField, currGame, label, index ;
 
 
 - (void) viewDidLoad
@@ -24,7 +24,7 @@
         nameToolbar.items = [NSArray arrayWithObjects: [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],[[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(enterName)],nil];
         [nameToolbar sizeToFit];
         textField.inputAccessoryView=nameToolbar;
-        label.text = [NSString stringWithFormat:@"Name for %@", self.player.name];
+        label.text = [NSString stringWithFormat:@"Name for #%ld", (long)self.index+1];
         [textField becomeFirstResponder];
 
     }
@@ -42,7 +42,7 @@
 
 -(void) buttonPushed
 {
-    NSArray *temp = [currGame playerAccessor];
+    NSMutableArray *temp = [currGame playerAccessor];
     NSUInteger num = [temp count];
     if ([textField.text integerValue]>num || [textField.text integerValue] < 1|| [textField.text isEqualToString:@""])
     {
@@ -52,40 +52,47 @@
     }
     else
     {
-        NSMutableArray *temp = [currGame playerAccessor];
-        Player *tempPlayer = [temp objectAtIndex:[textField.text integerValue]-1];
+        NSData* objData = [temp objectAtIndex:[textField.text integerValue]-1];
+        Player *tempPlayer = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
         NSString *restorationId = self.restorationIdentifier;
         if ([restorationId isEqualToString:@"Ejection Against"])
-            tempPlayer.ejectionsAgainst++;
+            tempPlayer.ejectionsAgainst= [NSNumber numberWithInt:[tempPlayer.ejectionsAgainst intValue]+1];
         else if([restorationId isEqualToString:@"Ejection Earned by"])
-            tempPlayer.ejectionsEarned++;
+            tempPlayer.ejectionsEarned= [NSNumber numberWithInt:[tempPlayer.ejectionsEarned intValue]+1];
         else if([restorationId isEqualToString:@"Game Played"])
-            tempPlayer.gamePlayed=YES;
+            tempPlayer.gamePlayed=@1;
         else if([restorationId isEqualToString:@"Game Started"])
-            tempPlayer.gameStarted=YES;
+            tempPlayer.gameStarted=@1;
         else if([restorationId isEqualToString:@"Turnover by"])
-            tempPlayer.turnovers++;
+            tempPlayer.turnovers= [NSNumber numberWithInt:[tempPlayer.turnovers intValue]+1];
         else if([restorationId isEqualToString:@"Offensive by"])
-            tempPlayer.offensives++;
+            tempPlayer.offensives= [NSNumber numberWithInt:[tempPlayer.offensives intValue]+1];
         else if([restorationId isEqualToString:@"Field Block by"])
-            tempPlayer.fieldBlocks++;
+            tempPlayer.fieldBlocks= [NSNumber numberWithInt:[tempPlayer.fieldBlocks intValue]+1];
         else if([restorationId isEqualToString:@"Shot by"])
-            tempPlayer.attempts++;
+            tempPlayer.attempts= [NSNumber numberWithInt:[tempPlayer.attempts intValue]+1];
         else if([restorationId isEqualToString:@"Goal by"])
-            tempPlayer.goals++;
+            tempPlayer.goals= [NSNumber numberWithInt:[tempPlayer.goals intValue]+1];
         else if([restorationId isEqualToString:@"Assist by"])
-            tempPlayer.assists++;
+            tempPlayer.assists= [NSNumber numberWithInt:[tempPlayer.assists intValue]+1];
         else if([restorationId isEqualToString:@"Steal by"])
-            tempPlayer.steals++;
+            tempPlayer.steals= [NSNumber numberWithInt:[tempPlayer.steals intValue]+1];
+        
+        objData= [NSKeyedArchiver archivedDataWithRootObject:tempPlayer];
+        [temp replaceObjectAtIndex:[textField.text integerValue]-1 withObject:objData];
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
 -(void) enterName
 {
-    Player *temp = self.player;
-    temp.name = textField.text;
-    
+    NSMutableArray *temp = [currGame playerAccessor];
+    NSData* objData = [temp objectAtIndex:self.index];
+    Player *tempPlayer = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
+    tempPlayer.name = textField.text;
+    objData= [NSKeyedArchiver archivedDataWithRootObject:tempPlayer];
+    [temp replaceObjectAtIndex: self.index withObject:objData];
+
 }
 - (void) alertView: (UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
