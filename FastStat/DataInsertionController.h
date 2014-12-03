@@ -10,5 +10,6 @@
 @interface DataInsertionController : GameViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property Player *player;
 @end

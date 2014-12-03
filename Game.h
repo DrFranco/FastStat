@@ -16,8 +16,7 @@
 
 -(NSMutableArray *) playerAccessor;
 
-
+-(id) initWithSaveData;
 -(void) saveData;
-
 
 @end

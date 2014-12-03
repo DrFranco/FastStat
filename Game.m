@@ -12,10 +12,30 @@
 
 - (id) init
 {
+    if (self=[super init])
+    {
+       
+        NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity: 26];
+        int i;
+        for (i=0; i<26;i++)
+        {
+            Player *thisPlayer = [Player new];
+            thisPlayer.name = [NSString stringWithFormat:@"%d", i+1];
+            thisPlayer.goals =0;
+            NSData* objData = [NSKeyedArchiver archivedDataWithRootObject:thisPlayer];
+            [newArray addObject:objData];
+        }
+        players = newArray;
+        
+        
+    }
+    return self;
+}
+- (id) initWithSaveData
+{
     NSString *initFilename;
     if (self=[super init])
     {
-        
         NSString *savedDataFilename = [self savedDataFilename];
         if([[NSFileManager defaultManager]fileExistsAtPath:savedDataFilename])
         {
@@ -24,20 +44,16 @@
         }
         else
         {
-            NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity: 26];
-            int i;
-            for (i=0; i<26;i++)
-            {
-                Player *thisPlayer = [Player new];
-                thisPlayer.name = [NSString stringWithFormat:@"%d", i+1];
-                thisPlayer.goals =0;
-                [newArray addObject:thisPlayer];
-            }
-            players = newArray;
+            self = nil;
         }
         
     }
     return self;
+}
+- (BOOL) locationCheck
+{
+    NSString *savedDataFilename = [self savedDataFilename];
+    return[[NSFileManager defaultManager]fileExistsAtPath:savedDataFilename];
 }
 -(NSMutableArray *) playerAccessor
 {

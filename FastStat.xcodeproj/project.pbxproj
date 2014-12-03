@@ -13,6 +13,7 @@
 		A07EE97D19FE036B0006F035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97C19FE036B0006F035 /* Images.xcassets */; };
 		A07EE98019FE036B0006F035 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A07EE97E19FE036B0006F035 /* LaunchScreen.xib */; };
 		A07EE98C19FE036B0006F035 /* FastStatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A07EE98B19FE036B0006F035 /* FastStatTests.m */; };
+		A07F06F61A2F0AC100B04F24 /* savedData.plist in Resources */ = {isa = PBXBuildFile; fileRef = A07F06F51A2F0AC100B04F24 /* savedData.plist */; };
 		A0A96D481A11D229005E0242 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A96D471A11D229005E0242 /* Player.m */; };
 		A0A96D501A11D9F5005E0242 /* DataInsertionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A96D4F1A11D9F5005E0242 /* DataInsertionController.m */; };
 		A0C86C7F1A1328D000AC293F /* EndOfGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0C86C7C1A1328D000AC293F /* EndOfGameViewController.m */; };
@@ -43,6 +44,7 @@
 		A07EE98519FE036B0006F035 /* FastStatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastStatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07EE98A19FE036B0006F035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A07EE98B19FE036B0006F035 /* FastStatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastStatTests.m; sourceTree = "<group>"; };
+		A07F06F51A2F0AC100B04F24 /* savedData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = savedData.plist; sourceTree = "<group>"; };
 		A0A96D471A11D229005E0242 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		A0A96D4E1A11D8F1005E0242 /* DataInsertionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataInsertionController.h; sourceTree = "<group>"; };
 		A0A96D4F1A11D9F5005E0242 /* DataInsertionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataInsertionController.m; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		A07EE96E19FE036B0006F035 /* FastStat */ = {
 			isa = PBXGroup;
 			children = (
+				A07F06F51A2F0AC100B04F24 /* savedData.plist */,
 				A0A96D4D1A11D69F005E0242 /* Model */,
 				A0A96D4C1A11D689005E0242 /* Control */,
 				A0A96D4B1A11D5B0005E0242 /* View */,
@@ -250,6 +253,7 @@
 			files = (
 				A07EE97B19FE036B0006F035 /* Main.storyboard in Resources */,
 				A07EE98019FE036B0006F035 /* LaunchScreen.xib in Resources */,
+				A07F06F61A2F0AC100B04F24 /* savedData.plist in Resources */,
 				A07EE97D19FE036B0006F035 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

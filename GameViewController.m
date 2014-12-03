@@ -33,12 +33,26 @@
 
 
 
-- (IBAction) newGame
+- (IBAction) newGame:(id) sender
 {
     UIStoryboard *storyboard = self.storyboard;
     GameViewController *gvc = [storyboard instantiateViewControllerWithIdentifier:@"InGameMenu"];
     NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity: 26];
-    gvc.currGame = [[Game alloc]init];
+    NSString *identifier = ((UIButton *) sender).titleLabel.text;
+    if ([identifier  isEqual: @"New Game"])
+    {
+        gvc.currGame = [[Game alloc]init];
+    }
+    else if ([identifier isEqual: @"Load Team"])
+    {
+        gvc.currGame =[[Game alloc]initWithSaveData];
+        if (gvc.currGame == nil)
+        {
+            UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Save Data Not Found!"message:@"There doesn't appear to be any team currently saved" delegate: self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+            return;
+        }
+    }
     NSArray *temp = [gvc.currGame playerAccessor];
     temp =newArray;
     [self presentViewController:gvc animated:YES completion:nil];
@@ -188,30 +202,25 @@
         
     
 }
-/*
- UIStoryboard *tableViewStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
- 
- UINavigationController *navController = [tableViewStoryboard instantiateViewControllerWithIdentifier:@"pinStoryboard"];
- 
- PinTableViewController *pinController = (PinTableViewController *)[navController.viewControllers objectAtIndex:0];
- pinController.pinTitleID = title;
- 
- [self presentViewController:navController animated:YES completion:nil];
- */
+
 -(void) endGame
 {
     UIStoryboard *storyboard = self.storyboard;
     UINavigationController *uinc = [storyboard instantiateViewControllerWithIdentifier:@"NavCont"];
     EndOfGameViewController *eogvc = (EndOfGameViewController *)[uinc.viewControllers objectAtIndex:0];
-    //EndOfGameViewController *eogvc = [storyboard instantiateViewControllerWithIdentifier:@"EndGameMenu"];
     eogvc.currGame = self.currGame;
-    //[self presentViewController:eogvc animated:YES completion:nil];
+    [self presentViewController:uinc animated:YES completion:nil];
+}
+- (IBAction) createTeam
+{
+    UIStoryboard *storyboard = self.storyboard;
+    UINavigationController *uinc = [storyboard instantiateViewControllerWithIdentifier:@"TeamCont"];
+    EndOfGameViewController *eogvc = (EndOfGameViewController *)[uinc.viewControllers objectAtIndex:0];
+    eogvc.currGame = [[Game alloc]init];
     [self presentViewController:uinc animated:YES completion:nil];
 }
 - (IBAction) quitToMainMenu
 {
-    //NSArray *temp =[currGame playerAccessor];
-    //temp = nil;
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
