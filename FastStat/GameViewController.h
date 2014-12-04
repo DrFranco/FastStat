@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
-
+#import "DataInsertionController.h"
+#import "EndOfGameViewController.h"
 @interface GameViewController : UIViewController <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *teamScore;

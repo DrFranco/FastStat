@@ -7,8 +7,7 @@
 //
 
 #import "GameViewController.h"
-#import "DataInsertionController.h"
-#import "EndOfGameViewController.h"
+
 @interface GameViewController ()
 
 @end

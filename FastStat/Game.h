@@ -12,10 +12,11 @@
 @interface Game : NSObject
 {
     NSMutableArray *players;
+    NSString *fileLoc;
 }
 
 -(NSMutableArray *) playerAccessor;
-
+-(NSString *)filePath;
 -(id) initWithSaveData;
 -(void) saveData;
 //+(void) initializeFileDic:(NSString*)FileNameExt;

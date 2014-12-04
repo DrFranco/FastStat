@@ -7,8 +7,9 @@
 //
 #import <UIKit/UIKit.h>
 #import "GameViewController.h"
-@interface DataInsertionController : GameViewController
-
+#import "Game.h"
+@interface DataInsertionController : UIViewController
+@property (strong, nonatomic) Game *currGame;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property Player *player;

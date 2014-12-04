@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 #import "Game.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     Game *currGame;
 }
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, strong) MFMailComposeViewController *globalMailComposer;
+-(void)cycleTheGlobalMailComposer;
 
 @end
 

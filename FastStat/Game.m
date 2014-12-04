@@ -19,6 +19,7 @@
         initFilename =
         [bundle pathForResource:@"Default"  ofType:@"plist"];
         players = [[NSMutableArray alloc ] initWithContentsOfFile:initFilename];
+        fileLoc= initFilename;
         int i;
         for (i=0; i<26;i++)
         {
@@ -52,6 +53,7 @@
             NSLog(@"Hopefully all is well \n\n");
             initFilename = savedDataFilename;
             players = [[NSMutableArray alloc] initWithContentsOfFile: initFilename];
+            fileLoc = initFilename;
         }
         else
         {
@@ -70,7 +72,10 @@
 {
     return players;
 }
-
+-(NSString *) filePath
+{
+    return fileLoc;
+}
 - (NSString *) savedDataFilename
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

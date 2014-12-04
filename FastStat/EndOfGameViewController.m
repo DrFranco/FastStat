@@ -8,10 +8,8 @@
 //  Code inspired by AllRecordsViewController created by Joshua Conner in MVCDemo. No plagiarism intended.
 
 #import "EndOfGameViewController.h"
-#import "StatViewController.h"
-#import "DataInsertionController.h"
 
-@interface EndOfGameViewController ()
+@interface EndOfGameViewController () 
 
 @end
 
@@ -95,7 +93,7 @@
     if (![restorationId isEqualToString:@"NameInput"])
     {
         self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"Quit" style:UIBarButtonItemStylePlain target:self action:@selector(quitToMainMenu)];
-        self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"Send" style: UIBarButtonItemStyleDone target:self action:nil];
+        self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithTitle:@"Send" style: UIBarButtonItemStyleDone target:self action:@selector(helpEmail)];
         [super viewDidLoad];
     }
     else
@@ -130,7 +128,38 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)helpEmail
+{
+    // APP.globalMailComposer IS READY TO USE from app launch.
+    // recycle it AFTER OUR USE.
+    
+    if ( [MFMailComposeViewController canSendMail] )
+    {
+        [APP.globalMailComposer setToRecipients: [NSArray arrayWithObjects: @"mfranco@scu.edu", nil]];
+        [APP.globalMailComposer setSubject:@"End of game StatData"];
+        [APP.globalMailComposer setMessageBody:@"Here is the plist stat data" isHTML:NO];
+        APP.globalMailComposer.mailComposeDelegate = self;
+        NSString *mimeType = @"application/xml";
+        NSData *fileData = [NSData dataWithContentsOfFile: [currGame filePath]];
+        [APP.globalMailComposer addAttachmentData: fileData mimeType:mimeType fileName:@"Stats.plist" ];
+        [self presentViewController: APP.globalMailComposer
+                           animated:YES completion:nil];
+    }
+    else
+    {
+        [APP cycleTheGlobalMailComposer];
+    }
+}
 
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller
+         didFinishWithResult:(MFMailComposeResult)result
+                       error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:^
+     { [APP cycleTheGlobalMailComposer]; }
+     ];
+}
 /*
  #pragma mark - Navigation
  
