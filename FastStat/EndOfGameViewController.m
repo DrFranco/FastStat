@@ -156,9 +156,16 @@
          didFinishWithResult:(MFMailComposeResult)result
                        error:(NSError *)error
 {
-    [self dismissViewControllerAnimated:YES completion:^
-     { [APP cycleTheGlobalMailComposer]; }
-     ];
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            [self dismissViewControllerAnimated:YES completion:^
+             { [APP cycleTheGlobalMailComposer];}];
+        default:
+            [self dismissViewControllerAnimated:YES completion:^
+             { [self quitToMainMenu];
+                 [APP cycleTheGlobalMailComposer];
+             }];
+    }
 }
 /*
  #pragma mark - Navigation

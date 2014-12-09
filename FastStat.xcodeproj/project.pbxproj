@@ -220,9 +220,11 @@
 				TargetAttributes = {
 					A07EE96B19FE036B0006F035 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = PX3MCHBS6C;
 					};
 					A07EE98419FE036B0006F035 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = PX3MCHBS6C;
 						TestTargetID = A07EE96B19FE036B0006F035;
 					};
 				};
@@ -425,6 +427,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -436,6 +440,7 @@
 				INFOPLIST_FILE = FastStatTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FastStat.app/FastStat";
 			};
 			name = Debug;
@@ -444,6 +449,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -451,6 +458,7 @@
 				INFOPLIST_FILE = FastStatTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FastStat.app/FastStat";
 			};
 			name = Release;

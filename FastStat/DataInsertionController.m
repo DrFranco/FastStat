@@ -80,7 +80,7 @@
         
         objData= [NSKeyedArchiver archivedDataWithRootObject:tempPlayer];
         [temp replaceObjectAtIndex:[textField.text integerValue]-1 withObject:objData];
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
     }
 }
 
@@ -104,6 +104,6 @@
 }
 -(void)cancelButton
 {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
 }
 @end
