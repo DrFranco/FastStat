@@ -33,9 +33,7 @@
     {
         newCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
                                          reuseIdentifier:playerCellID];
-        newCell.showsReorderControl = YES;
     }
-    
     NSArray *allPlayers = [self.currGame playerAccessor];
     NSData* objData = [allPlayers objectAtIndex:indexPath.row];
     Player *temp = (Player *)[NSKeyedUnarchiver unarchiveObjectWithData:objData];
@@ -135,7 +133,7 @@
     
     if ( [MFMailComposeViewController canSendMail] )
     {
-        [APP.globalMailComposer setToRecipients: [NSArray arrayWithObjects: @"mfranco@scu.edu", nil]];
+        [APP.globalMailComposer setToRecipients: [NSArray arrayWithObjects: nil]];
         [APP.globalMailComposer setSubject:@"End of game StatData"];
         [APP.globalMailComposer setMessageBody:@"Here is the plist stat data" isHTML:NO];
         APP.globalMailComposer.mailComposeDelegate = self;
@@ -160,8 +158,9 @@
         case MFMailComposeResultCancelled:
             [self dismissViewControllerAnimated:YES completion:^
              { [APP cycleTheGlobalMailComposer];}];
+            break;
         default:
-            [self dismissViewControllerAnimated:YES completion:^
+            [self dismissViewControllerAnimated:NO completion:^
              { [self quitToMainMenu];
                  [APP cycleTheGlobalMailComposer];
              }];

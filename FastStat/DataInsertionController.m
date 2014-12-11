@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Michael Franco. All rights reserved.
 //
 #define TAG_ERR 1
-#define TAG_OK 2
+#define TAG_NAME 2
 #import "DataInsertionController.h"
 @implementation DataInsertionController
 
@@ -56,27 +56,60 @@
         Player *tempPlayer = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
         NSString *restorationId = self.restorationIdentifier;
         if ([restorationId isEqualToString:@"Ejection Against"])
-            tempPlayer.ejectionsAgainst= [NSNumber numberWithInt:[tempPlayer.ejectionsAgainst intValue]+1];
-        else if([restorationId isEqualToString:@"Ejection Earned by"])
-            tempPlayer.ejectionsEarned= [NSNumber numberWithInt:[tempPlayer.ejectionsEarned intValue]+1];
-        else if([restorationId isEqualToString:@"Game Played"])
+        {
             tempPlayer.gamePlayed=@1;
+            tempPlayer.ejectionsAgainst= [NSNumber numberWithInt:[tempPlayer.ejectionsAgainst intValue]+1];
+        }
+        else if([restorationId isEqualToString:@"Ejection Earned by"])
+        {
+            tempPlayer.gamePlayed=@1;
+            tempPlayer.ejectionsEarned= [NSNumber numberWithInt:[tempPlayer.ejectionsEarned intValue]+1];
+        }
+        else if([restorationId isEqualToString:@"Game Played"])
+        {
+            tempPlayer.gamePlayed=@1;
+        }
         else if([restorationId isEqualToString:@"Game Started"])
+        {
+            tempPlayer.gamePlayed=@1;
             tempPlayer.gameStarted=@1;
+        }
         else if([restorationId isEqualToString:@"Turnover by"])
+        {
+            tempPlayer.gamePlayed=@1;
             tempPlayer.turnovers= [NSNumber numberWithInt:[tempPlayer.turnovers intValue]+1];
+        }
         else if([restorationId isEqualToString:@"Offensive by"])
+        {
+            tempPlayer.gamePlayed=@1;
             tempPlayer.offensives= [NSNumber numberWithInt:[tempPlayer.offensives intValue]+1];
+        }
         else if([restorationId isEqualToString:@"Field Block by"])
+        {
+            tempPlayer.gamePlayed=@1;
             tempPlayer.fieldBlocks= [NSNumber numberWithInt:[tempPlayer.fieldBlocks intValue]+1];
+        }
         else if([restorationId isEqualToString:@"Shot by"])
+        {
+            tempPlayer.gamePlayed=@1;
             tempPlayer.attempts= [NSNumber numberWithInt:[tempPlayer.attempts intValue]+1];
+        }
         else if([restorationId isEqualToString:@"Goal by"])
+        {
+            tempPlayer.gamePlayed=@1;
+            tempPlayer.attempts= [NSNumber numberWithInt:[tempPlayer.attempts intValue]+1];
             tempPlayer.goals= [NSNumber numberWithInt:[tempPlayer.goals intValue]+1];
+        }
         else if([restorationId isEqualToString:@"Assist by"])
+        {
+            tempPlayer.gamePlayed=@1;
             tempPlayer.assists= [NSNumber numberWithInt:[tempPlayer.assists intValue]+1];
+        }
         else if([restorationId isEqualToString:@"Steal by"])
+        {
+            tempPlayer.gamePlayed=@1;
             tempPlayer.steals= [NSNumber numberWithInt:[tempPlayer.steals intValue]+1];
+        }
         
         objData= [NSKeyedArchiver archivedDataWithRootObject:tempPlayer];
         [temp replaceObjectAtIndex:[textField.text integerValue]-1 withObject:objData];
@@ -86,24 +119,42 @@
 
 -(void) enterName
 {
+    if (([textField.text rangeOfCharacterFromSet:[[NSCharacterSet letterCharacterSet] invertedSet]].location == NSNotFound)==YES)
+    {
     NSMutableArray *temp = [currGame playerAccessor];
     NSData* objData = [temp objectAtIndex:self.index];
     Player *tempPlayer = [NSKeyedUnarchiver unarchiveObjectWithData:objData];
     tempPlayer.name = textField.text;
     objData= [NSKeyedArchiver archivedDataWithRootObject:tempPlayer];
     [temp replaceObjectAtIndex: self.index withObject:objData];
+    [self.navigationController popViewControllerAnimated:YES];
+    }
+    else
+    {
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Invalid Name" message:@"Alphabet characters only please" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        alert.tag=TAG_NAME;
+        [alert show];
+    }
 
 }
 - (void) alertView: (UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //now this is unnecessary at the moment, but if I were to add more alerts, it would avoid problems
-    if (alertView.tag==TAG_OK)
+    if (alertView.tag==TAG_NAME)
     {
         //removed alert: was redundant w the apply button
     }
 }
 -(void)cancelButton
 {
-    [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+    NSString *restorationId = self.restorationIdentifier;
+    if ([restorationId isEqualToString:@"Goal by"])
+    {
+            currGame.goalCancel=YES;
+        
+        [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+    }
+    else
+        [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
 }
 @end

@@ -14,7 +14,7 @@
     NSMutableArray *players;
     NSString *fileLoc;
 }
-
+@property (nonatomic) BOOL goalCancel;
 -(NSMutableArray *) playerAccessor;
 -(NSString *)filePath;
 -(id) initWithSaveData;

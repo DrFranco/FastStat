@@ -9,7 +9,7 @@
 
 #import "Game.h"
 @implementation Game
-
+@synthesize goalCancel;
 - (id) init
 {
     if (self=[super init])

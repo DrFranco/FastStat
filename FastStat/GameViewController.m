@@ -7,7 +7,7 @@
 //
 
 #import "GameViewController.h"
-
+#define TAG_LOAD 1
 @interface GameViewController ()
 
 @end
@@ -28,7 +28,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    if ([currGame goalCancel])
+    {
+        int x = [teamScore.text intValue];
+        x--;
+        teamScore.text = [NSString stringWithFormat:@"%ld", (long)x];
+        currGame.goalCancel=NO;
+    }
+}
 
 
 
@@ -63,8 +72,25 @@
     UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Against or Earned?"message:@"Choose applicable" delegate: self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Against",@"Earned", nil];
     [alert show];
 }
+
+
+
 - (void) alertView: (UIAlertView *) alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    if (alertView.tag==TAG_LOAD)
+    {
+        if (buttonIndex==1)
+        {
+            UIStoryboard *storyboard = self.storyboard;
+            UINavigationController *uinc = [storyboard instantiateViewControllerWithIdentifier:@"TeamCont"];
+            EndOfGameViewController *eogvc = (EndOfGameViewController *)[uinc.viewControllers objectAtIndex:0];
+            eogvc.currGame = [[Game alloc]init];
+            [self presentViewController:uinc animated:YES completion:nil];
+        }
+    }
+    else{
+        
+    
     if (buttonIndex==1)
     {
         UIStoryboard *storyboard = self.storyboard;
@@ -79,7 +105,10 @@
         dic.currGame = currGame;
         [self presentViewController:dic animated:YES completion:nil];
     }
+    }
 }
+
+
 // Game Played
 - (IBAction) gamePlayed
 {
@@ -209,12 +238,16 @@
 }
 - (IBAction) createTeam
 {
-    UIStoryboard *storyboard = self.storyboard;
-    UINavigationController *uinc = [storyboard instantiateViewControllerWithIdentifier:@"TeamCont"];
-    EndOfGameViewController *eogvc = (EndOfGameViewController *)[uinc.viewControllers objectAtIndex:0];
-    eogvc.currGame = [[Game alloc]init];
-    [self presentViewController:uinc animated:YES completion:nil];
+    Game *temp =[[Game alloc]initWithSaveData];
+    if (temp != nil)
+    {
+        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Save Data Found!"message:@"There appears to already be a team saved to this device, do you wish to continue?" delegate: self cancelButtonTitle:@"Cancel" otherButtonTitles: @"Continue", nil];
+        alert.tag=TAG_LOAD;
+        [alert show];
+    }
+    
 }
+
 - (IBAction) quitToMainMenu
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
